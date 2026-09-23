@@ -1,0 +1,144 @@
+/* Theme: Neon Green WAP */
+/*
+ * Neon green WAP theme with automatic dark mode.
+ *
+ * How it works:
+ *   - Plain literal colors are declared FIRST, so browsers too old for
+ *     CSS variables (and old WAP browsers that barely know CSS at all)
+ *     still get a readable light green page.
+ *   - The same properties are then re-declared with var(...) overrides
+ *     for everything modern.
+ *   - @media (prefers-color-scheme: dark) flips the palette to the
+ *     classic black / neon-green terminal look on systems that ask
+ *     for dark mode (phones and desktops with dark preference).
+ *     Anything that does not understand that media query simply keeps
+ *     the light look -- no JavaScript involved.
+ */
+
+/* ---- fallbacks for browsers without CSS variables ---- */
+
+body {
+    background: #f7fff4;
+    color: #14401a;
+    margin: 8px;
+}
+
+a:link    { color: #008f3c; }
+a:visited { color: #006b2e; }
+
+.msg-companion { background: #eafbe6; border: 1px solid #b5e3bd; }
+.msg-user      { background: #ffffff; border: 1px solid #d5ecd9; }
+
+input[type="text"], textarea, select {
+    background: #ffffff;
+    color: #14401a;
+    border: 1px solid #35b45a;
+}
+
+/* ---- modern layer: same look via variables ---- */
+
+:root {
+    --bg: #f7fff4;
+    --text: #14401a;
+    --accent: #00a844;
+    --link: #008f3c;
+    --link-visited: #006b2e;
+    --companion-bg: #eafbe6;
+    --companion-border: #b5e3bd;
+    --user-bg: #ffffff;
+    --user-border: #d5ecd9;
+    --field-bg: #ffffff;
+    --field-text: #14401a;
+    --field-border: #35b45a;
+    color-scheme: light dark;
+}
+
+/* ---- automatic dark mode for modern systems ---- */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #000000;
+        --text: #39ff14;
+        --accent: #00ff41;
+        --link: #00ff41;
+        --link-visited: #23b84a;
+        --companion-bg: #0a1a02;
+        --companion-border: #0f8f2f;
+        --user-bg: #04140a;
+        --user-border: #0c5c1f;
+        --field-bg: #030703;
+        --field-text: #39ff14;
+        --field-border: #0f8f2f;
+    }
+
+    h1 {
+        text-shadow: 0 0 6px rgba(57, 255, 20, 0.55);
+    }
+
+    a:link    { color: var(--link); }
+    a:visited { color: var(--link-visited); }
+}
+
+/* ---- shared layout, variable-driven ---- */
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    /* readable line length on big screens; harmless on small ones */
+    max-width: 40em;
+}
+
+h1 {
+    font-size: 1.4em;
+    margin: 0.2em 0 0.4em 0;
+    color: var(--accent);
+}
+
+p.nav {
+    font-size: 0.9em;
+    margin: 0.3em 0 0.5em 0;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--accent);
+    margin: 0.5em 0;
+}
+
+/* Chat turns get subtle boxes so who-said-what is obvious. */
+.msg {
+    margin: 0 0 0.85em 0;
+    padding: 0.4em 0.6em;
+    max-width: 100%;
+}
+
+.msg-companion {
+    background: var(--companion-bg);
+    border: 1px solid var(--companion-border);
+}
+
+.msg-user {
+    background: var(--user-bg);
+    border: 1px solid var(--user-border);
+}
+
+form p {
+    margin: 0.4em 0;
+}
+
+input[type="text"], textarea, select {
+    font: inherit;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: var(--field-bg);
+    color: var(--field-text);
+    border: 1px solid var(--field-border);
+}
+
+input[type="submit"] {
+    font: inherit;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--field-border);
+    padding: 0.2em 0.9em;
+}

@@ -1,0 +1,3 @@
+All of these instructions created by Claude and GLM-5.3-Flash together and in common contains a lot of complicated tech terms that can scare average users (original README.md file of Chisai had size in 20 kilobytes of text). For sake of simplicity, it was decided to separate things and put it into this folder.
+
+This all will be polished later in the future. But for now, feel free to explore, if you'll need something there.

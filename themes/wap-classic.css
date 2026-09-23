@@ -1,0 +1,44 @@
+/* Theme: WAP Classic */
+/*
+ * Baseline look that mirrors the original no-CSS skeleton: plain white
+ * page, black text, standard blue links. Intentionally boring -- it is
+ * the reference style every other theme is measured against, and the
+ * safest choice for very old browsers (it uses no CSS variables and
+ * no media queries at all).
+ */
+
+body {
+    background: #ffffff;
+    color: #000000;
+    margin: 8px;
+}
+
+h1 {
+    font-size: 1.4em;
+    margin: 0.2em 0 0.4em 0;
+}
+
+p.nav {
+    font-size: 0.9em;
+    margin: 0.3em 0 0.5em 0;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #999999;
+    margin: 0.5em 0;
+}
+
+/* Chat turns. Kept visually flat: classic WAP pages are mostly text. */
+.msg {
+    margin: 0 0 0.8em 0;
+}
+
+form p {
+    margin: 0.4em 0;
+}
+
+input[type="text"], textarea, select {
+    font: inherit;
+    max-width: 100%;
+}

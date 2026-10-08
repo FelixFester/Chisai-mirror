@@ -66,4 +66,5 @@ RAMの数値は Q4_K_M 量子化（ローカル利用における標準的な最
 ----
 
 *Claude Sonnet 5、GLM-5.3-Flash、ChatGPT の大きな助けを借りて作成しました <3
+
 Translated by Claude Sonnet 5.5.
